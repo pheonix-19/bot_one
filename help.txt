@@ -1,0 +1,32 @@
+*parameter 
+
+after writing the simplE PARAMETER  
+
+run the file by 
+---ros2 run pkg_name file_name.py
+###(activate the parameter)
+
+to see the all active parameter
+---ros2 param list
+###list of all the active parameter will apper 
+
+we can get the parameter value by 
+---ros2 param get /name_of_ParamFile Name_of_parameter
+
+to set the parameter 
+---ros2 param set /name_of_paramFile Name_of_Parameter value
+
+
+*visualize
+to visualis the model 
+---ros2 run robot_state_publisher robot_state_publisher --ros-args -p robot_description:="$( xacro [path to the urdf])"
+###it will detect the all link
+while running the on the terminal run also
+---ros2 run  joint_statee_publisher_gui joint_state_publisher_gui
+(joint state pblisher window will appear)
+also run 
+---ros2 run rviz2 rviz2
+###add tf and robot model plugin
+###change the fixed frame
+
+
