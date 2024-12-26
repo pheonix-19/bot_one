@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<robot name="bot" xmlns:xacro="http://ros.org/wiki/xacro">
+<robot name="bumperbot" xmlns:xacro="http://ros.org/wiki/xacro">
 
   <!-- Wheels -->
   <gazebo reference="wheel_left_link">
@@ -43,7 +43,7 @@
   </gazebo>
 
   <!-- ROS 2 Control -->
-  <gazebo> 
+  <gazebo>
     <!-- ROS 2 Humble -->
     <xacro:if value="$(arg is_ignition)">
       <plugin filename="ign_ros2_control-system" name="ign_ros2_control::IgnitionROS2ControlPlugin">
@@ -51,13 +51,12 @@
       </plugin>
       <plugin filename="ignition-gazebo-imu-system" name="ignition::gazebo::systems::Imu">
       </plugin>
-    </xacro:if> 
-  </gazebo>
+    </xacro:if>
 
     <!-- ROS 2 Iron or above -->
     <xacro:unless value="$(arg is_ignition)">
       <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
-        <parameters>$(find bot_controller)/config/bot_controllers.yaml</parameters>
+        <parameters>$(find bot_controller)/config/bot_controller.yaml</parameters>
       </plugin>
       <plugin filename="gz-sim-imu-system" name="gz::sim::systems::Imu">
       </plugin>
@@ -65,7 +64,7 @@
   </gazebo>
 
   <!-- IMU -->
-  <!-- <gazebo reference="imu_link">
+  <gazebo reference="imu_link">
     <sensor name="imu" type="imu">
         <always_on>true</always_on>
         <update_rate>100</update_rate>
@@ -114,6 +113,6 @@
           </linear_acceleration>
         </imu>
     </sensor>
-  </gazebo> -->
+  </gazebo>
 
 </robot>

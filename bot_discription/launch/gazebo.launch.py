@@ -12,10 +12,10 @@ from launch_ros.parameter_descriptions import ParameterValue
 
 
 def generate_launch_description():
-    bumperbot_description = get_package_share_directory("bot_discription")
+    bot_discription = get_package_share_directory("bot_discription")
 
     model_arg = DeclareLaunchArgument(name="model", default_value=os.path.join(
-                                        bumperbot_description, "urdf", "bumperbot.urdf.xacro"
+                                        bot_discription, "urdf", "bumperbot.urdf.xacro"
                                         ),
                                       description="Absolute path to robot urdf file"
     )
@@ -23,7 +23,7 @@ def generate_launch_description():
     gazebo_resource_path = SetEnvironmentVariable(
         name="GZ_SIM_RESOURCE_PATH",
         value=[
-            str(Path(bumperbot_description).parent.resolve())
+            str(Path(bot_discription).parent.resolve())
             ]
         )
     
@@ -60,7 +60,7 @@ def generate_launch_description():
         executable="create",
         output="screen",
         arguments=["-topic", "robot_description",
-                   "-name", "bumperbot"],
+                   "-name", "bot"],
     )
 
     gz_ros2_bridge = Node(

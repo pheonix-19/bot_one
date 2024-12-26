@@ -6,7 +6,7 @@
   <xacro:arg name="is_ignition" default="true"/>
 
   <!-- Load Simulated or Real Hardware Interfaces -->
-  <!-- <xacro:arg name="is_sim" default="true"/> -->
+  <xacro:arg name="is_sim" default="true"/>
 
   <!-- Include Gazebo Parameters -->
   <xacro:include filename="$(find bot_discription)/urdf/bumperbot_gazebo.xacro" />
@@ -192,19 +192,5 @@
     <child link="imu_link" />
     <axis xyz="0 0 0" />
   </joint>
-
-  <!-- <link name="can_link">
-    <visual>
-      <origin xyz="-0.0307 0.0307 0" rpy="1.57 0 0" />
-      <geometry>
-        <mesh filename="package://bot_discription/meshes/can.STL" />
-      </geometry>
-    </visual>
-  </link>
-  <joint name="can_joint" type="fixed">
-    <origin xyz="0 0 0.078" rpy="0 0 0" />
-    <parent link="base_link" />
-    <child link="can_link" />
-  </joint>   -->
 
 </robot>
