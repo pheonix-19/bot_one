@@ -17,7 +17,7 @@ def generate_launch_description():
     joy_teleop = Node(
         package="joy_teleop",
         executable="joy_teleop",
-        parameters=[os.path.join(get_package_share_directory("bot_controller"), "config", "joy_teleop.yaml"),
+        parameters=[os.path.join(get_package_share_directory("rbot_controller"), "config", "joy_teleop.yaml"),
                     {"use_sim_time": LaunchConfiguration("use_sim_time")}],
     )
 
